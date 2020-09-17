@@ -1,4 +1,4 @@
-version: 1.0.{build}
+version: '{version}'
 branches:
   only:
   - master
@@ -10,3 +10,7 @@ clone_folder: c:\projects\uacme
 build:
   project: Source/uacme.sln
   verbosity: normal
+after_build:
+  7z a uacme.zip Source\*\output\x64\Release\*.exe
+artifacts:
+  - path: uacme.zip
